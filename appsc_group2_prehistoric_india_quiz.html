@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>APPSC Group 2 | Prehistoric India Practice</title>
+<style>
+:root{--navy:#172554;--blue:#1d4ed8;--bg:#f4f7fb;--ink:#172033;--muted:#64748b;--green:#15803d;--greenbg:#dcfce7;--red:#b91c1c;--redbg:#fee2e2;--line:#dbe3ef}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);font-family:system-ui,-apple-system,Segoe UI,Roboto,sans-serif;color:var(--ink);line-height:1.5}
+header{background:linear-gradient(135deg,#172554,#1d4ed8);color:white;padding:25px 16px 22px}
+.wrap{max-width:900px;margin:auto;padding:0 14px}h1{font-size:clamp(1.35rem,4vw,2rem);margin:0 0 5px}header p{margin:0;color:#dbeafe}
+main{padding:18px 0 42px}.panel{background:white;border:1px solid var(--line);border-radius:16px;padding:16px;margin-bottom:14px;box-shadow:0 4px 14px #1725540a}
+.row{display:flex;gap:10px;align-items:center;justify-content:space-between;flex-wrap:wrap}.pill{font-size:.8rem;font-weight:700;background:#eaf0ff;color:#1e40af;padding:5px 9px;border-radius:999px}
+.progress{height:8px;background:#e2e8f0;border-radius:20px;overflow:hidden;margin-top:12px}.bar{height:100%;background:#2563eb;width:0;transition:width .2s}
+.qtitle{font-weight:750;font-size:1.04rem;margin:12px 0}.opts{display:grid;gap:9px}.opt{width:100%;text-align:left;border:1px solid #cbd5e1;background:#fff;border-radius:11px;padding:12px 13px;color:var(--ink);font:inherit;cursor:pointer;display:flex;gap:10px;align-items:flex-start}.opt:hover:not(:disabled){border-color:#2563eb;background:#f8faff}.letter{font-weight:800;min-width:24px;color:#475569}.opt.correct{background:var(--greenbg);border-color:#22c55e;color:#14532d}.opt.wrong{background:var(--redbg);border-color:#ef4444;color:#7f1d1d}.opt:disabled{cursor:default}.feedback{display:none;margin-top:12px;padding:12px;border-radius:10px;background:#f1f5f9;font-size:.94rem}.feedback.show{display:block}.feedback.good{background:var(--greenbg);color:#14532d}.feedback.bad{background:#fff1f2;color:#881337}
+button.action{border:0;border-radius:10px;background:var(--blue);color:white;font-weight:750;padding:11px 15px;font-size:.95rem;cursor:pointer}button.secondary{background:#e2e8f0;color:#1e293b}button:disabled{opacity:.45;cursor:not-allowed}.controls{display:flex;gap:8px;flex-wrap:wrap;margin-top:14px}.small{font-size:.88rem;color:var(--muted)}.hidden{display:none!important}#results h2{margin-top:0}.score{font-size:2.1rem;font-weight:850;color:#1d4ed8}.review-item{padding:12px 0;border-top:1px solid var(--line)}.review-item strong{display:block}.tag{font-size:.75rem;font-weight:800;text-transform:uppercase;letter-spacing:.04em;color:#475569}.foot{text-align:center;color:var(--muted);font-size:.82rem;padding:8px 0 24px}
+</style>
+</head>
+<body>
+<header><div class="wrap"><h1>APPSC Group 2 — Prehistoric India</h1><p>Competitive-exam practice • Conceptual MCQs • Instant checking</p></div></header>
+<main class="wrap">
+<section class="panel">
+ <div class="row"><div><strong>Practice Set 01</strong><div class="small">Stone Age • Neolithic • Chalcolithic • Megalithic • Iron Age</div></div><span class="pill">35 Questions</span></div>
+ <p class="small">These are APPSC-style practice questions based on the notes you shared, not a claim that every question is an official previous-year question. Select an option to check it immediately.</p>
+ <div class="progress"><div class="bar" id="bar"></div></div>
+ <div class="row small" style="margin-top:7px"><span id="progressText">Question 1 of 35</span><span id="scoreText">Score: 0</span></div>
+</section>
+<div id="quiz"></div>
+<section class="panel hidden" id="results">
+ <h2>Practice result</h2><div class="score" id="finalScore"></div><p id="summary"></p>
+ <div class="controls"><button class="action" onclick="showReview()">Review answers</button><button class="action secondary" onclick="restart()">Try again</button></div>
+ <div id="review" class="hidden"></div>
+</section>
+<div class="foot">Made for revision • Use alongside your standard APPSC material; verify dates and disputed interpretations from reliable sources.</div>
+</main>
+<script>
+const questions = [
+{q:"Which sequence correctly represents the conventional division of the Indian Stone Age?",o:["Mesolithic → Palaeolithic → Neolithic","Palaeolithic → Mesolithic → Neolithic","Neolithic → Palaeolithic → Mesolithic","Palaeolithic → Neolithic → Mesolithic"],a:1,e:"The conventional sequence is Palaeolithic (Old Stone Age), Mesolithic (Middle Stone Age), and Neolithic (New Stone Age)."},
+{q:"The Palaeolithic economy described in the notes is best characterised by:",o:["Intensive plough agriculture and permanent villages","Hunting, gathering and a largely mobile way of life","Large-scale copper metallurgy and urban trade","Iron tools and surplus-producing states"],a:1,e:"Palaeolithic communities relied mainly on hunting and gathering and generally moved in search of resources."},
+{q:"Why is the term 'Quartzite Man' associated with some Palaeolithic people in Indian history texts?",o:["They built quartzite megaliths","Quartzite was commonly used to make their stone tools","They traded quartzite with Rome","They used quartzite only for pottery"],a:1,e:"The label reflects the use of quartzite, a hard rock, for stone tools. It is a textbook shorthand rather than a distinct biological type."},
+{q:"Which tool assemblage is most characteristic of the Lower Palaeolithic in standard Indian prehistory classifications?",o:["Polished celts and sickles","Microliths set into composite tools","Hand-axes, cleavers and choppers","Iron ploughshares and sickles"],a:2,e:"Hand-axes, cleavers and choppers are commonly associated with Lower Palaeolithic assemblages."},
+{q:"A site yielding microliths, including small geometric stone tools, is most strongly associated with which phase?",o:["Lower Palaeolithic","Mesolithic","Mature Harappan","Early Iron Age only"],a:1,e:"Microliths are a key technological feature of Mesolithic assemblages, though small tools can occur in other contexts too."},
+{q:"Which statement about Mesolithic life is the most accurate?",o:["All communities immediately became settled farmers","Hunting and gathering continued, with fishing and animal domestication in some later contexts","Iron smelting replaced stone-tool use everywhere","Pottery was universal at every Mesolithic site"],a:1,e:"Mesolithic communities continued foraging; fishing was important at many sites, and domestication or cultivation appeared in some later contexts."},
+{q:"Which of the following is specifically associated in the notes with early rock paintings discovered in 1867?",o:["Sohagihat in the Kaimur Hills","Brahmagiri in Karnataka","Adichanallur in Tamil Nadu","Atranjikhera in Uttar Pradesh"],a:0,e:"The notes identify Sohagihat in the Kaimur Hills, Uttar Pradesh, in connection with the early discovery of rock paintings."},
+{q:"Which site is especially famous for extensive rock shelters and prehistoric paintings and is associated with the Mesolithic as well as other prehistoric phases?",o:["Bhimbetka","Lothal","Arikamedu","Taxila"],a:0,e:"Bhimbetka in Madhya Pradesh contains numerous rock shelters and paintings spanning different periods."},
+{q:"Which pairing is correctly matched?",o:["Bagor — Rajasthan — important Mesolithic site","Burzahom — Kerala — pit dwellings","Adichanallur — Rajasthan — microlith factory","Chirand — Karnataka — Harappan dockyard"],a:0,e:"Bagor in Rajasthan is widely recognised as a major Mesolithic site. Burzahom is in Kashmir; Chirand is in Bihar."},
+{q:"The term 'Neolithic Revolution' is commonly associated with which scholar?",o:["Mortimer Wheeler","V. Gordon Childe","Alexander Cunningham","D. D. Kosambi"],a:1,e:"V. Gordon Childe popularised the expression 'Neolithic Revolution' for major changes associated with food production and settled life."},
+{q:"Which combination best distinguishes the Neolithic from earlier foraging phases?",o:["Only the use of unmodified pebbles","Food production, domestication and ground/polished stone tools","Exclusive dependence on imported iron","Coinage and monumental urban drainage"],a:1,e:"Neolithic communities increasingly practised cultivation and animal domestication and used ground or polished stone tools."},
+{q:"Which crop is specifically mentioned in the supplied notes among Neolithic food crops?",o:["Ragi (finger millet)","Tobacco","Tea","Coffee"],a:0,e:"The notes mention ragi and horse gram (kulthi), alongside other crops."},
+{q:"Which site–feature pair is correctly matched?",o:["Burzahom — pit dwellings and a distinctive Neolithic settlement","Lahuradewa — Roman amphitheatre","Bhimbetka — Harappan dockyard","Adichanallur — Mauryan pillar edicts"],a:0,e:"Burzahom in Kashmir is known for pit dwellings and distinctive Neolithic remains."},
+{q:"Which of the following is identified in the notes as an early Neolithic site in Baluchistan?",o:["Mehrgarh","Brahmagiri","Jorwe","Paiyampalli"],a:0,e:"Mehrgarh, in present-day Pakistan's Balochistan region, is an important early farming settlement."},
+{q:"Which site is associated in the notes with evidence described as among the earliest for rice cultivation?",o:["Koldihwa","Junapani","Nevasa","Sohagihat"],a:0,e:"Koldihwa in the Belan Valley is often cited in textbooks in discussions of early rice cultivation; the precise chronology and interpretation are debated."},
+{q:"Which statement about Neolithic pottery is most defensible?",o:["Pottery was absent from every Neolithic community","Pottery production and styles varied by region and phase","All Neolithic pottery was wheel-made and glazed","Pottery was invented only after the Iron Age"],a:1,e:"Pottery practices varied. Early pottery could be handmade, and the potter's wheel was not universal from the beginning."},
+{q:"The transition to self-sufficient village communities during the Neolithic is most closely linked with:",o:["A shift toward cultivation, animal keeping and more settled life","The disappearance of all stone tools","The immediate rise of imperial bureaucracies","The spread of coin-based taxation"],a:0,e:"Food production and domestication supported more settled communities, although the pace and form varied across regions."},
+{q:"Which regional pattern of Neolithic axes is correctly reflected in the notes?",o:["North-western — rectangular axes with curved cutting edges","Southern — only iron axes","North-eastern — no polished stone tools","All regions used identical axe forms"],a:0,e:"The supplied notes describe regional variations in axe forms, including north-western rectangular axes with curved cutting edges."},
+{q:"Which of the following sites is associated with Neolithic pit dwellings in Kashmir?",o:["Burzahom","Chopani-Mando","Bagor","Jorwe"],a:0,e:"Burzahom in Kashmir is particularly noted for pit dwellings."},
+{q:"The Chalcolithic period is named for the combined use of:",o:["Stone and copper","Bronze and iron only","Gold and silver only","Bone and ivory only"],a:0,e:"Chalcolithic literally refers to the Copper-Stone phase, when copper and stone tools coexisted."},
+{q:"Which statement about Chalcolithic communities is incorrect?",o:["Copper was used alongside stone tools","Agriculture and animal husbandry were important","Copper was routinely alloyed with tin at every site","Some communities used painted pottery"],a:2,e:"The notes state that some Chalcolithic people did not know how to mix tin with copper. Metallurgical practices varied by region."},
+{q:"Which pottery tradition is abbreviated as BRW in the notes?",o:["Black and Red Ware","Bronze-Rimmed Ware","Brown River Ware","Black-Rimmed Whiteware"],a:0,e:"BRW stands for Black and Red Ware."},
+{q:"Which crops are noted as being cultivated in both Kharif and Rabi seasons in Chalcolithic contexts?",o:["Only tea and coffee","Both seasonal crop groups, with barley specifically mentioned in the notes","Only tobacco and cotton","Only rubber and jute"],a:1,e:"The supplied notes mention cultivation of both Kharif and Rabi crops and identify barley among the crops discussed."},
+{q:"The notes associate the discovery at Gungeria (Madhya Pradesh) with:",o:["A hoard of copper objects and thin silver sheets","The earliest Ashokan inscription","A Roman amphora warehouse","A Buddhist university"],a:0,e:"The notes report 424 copper tools/weapons and 102 thin silver sheets from Gungeria; treat exact counts as textbook-specific details."},
+{q:"Which is the most appropriate broad interpretation of the Chalcolithic period in the notes?",o:["A uniform empire covering all of India","A varied transitional period with copper use, agriculture and settlement patterns differing by region","A period in which all communities abandoned farming","A period defined only by iron smelting"],a:1,e:"Chalcolithic cultures differed regionally and combined copper use with stone tools, farming and varied settlement forms."},
+{q:"Megaliths are best defined as:",o:["Large stone structures, often associated with burial or memorial practices","Small copper coins used for market exchange","Mud-brick drains of Harappan cities","Polished stone axes used only for farming"],a:0,e:"Megaliths are large stone constructions often connected with burial and commemorative practices."},
+{q:"Which source types are mentioned in the notes as helping researchers study early South Indian megalithic societies?",o:["Ashokan inscriptions, Sangam literature and Megasthenes' account","Only Mughal court chronicles","Only Portuguese travel diaries","Only Gupta gold coins"],a:0,e:"The notes refer to Ashokan inscriptions, Sangam literature and accounts by Megasthenes as sources, alongside archaeology."},
+{q:"Which site–burial association is correctly matched according to the supplied notes?",o:["Brahmagiri — cairns, stone circles and dolmens","Adichanallur — only rock paintings","Porkalam — Harappan dockyard","Junapani — Neolithic rice terraces"],a:0,e:"The notes associate Brahmagiri in Karnataka with cairns, stone circles and dolmens."},
+{q:"Which site in Tamil Nadu is associated in the notes with urn and pit burials?",o:["Adichanallur","Bagor","Burzahom","Nevasa"],a:0,e:"Adichanallur in Tamil Nadu is associated with urn burials and other burial evidence."},
+{q:"The presence of weapons, ornaments and pottery in megalithic graves can help archaeologists investigate:",o:["Social differentiation and beliefs about death or an afterlife","The exact spoken language of every individual","The precise names of all rulers","The date of invention of writing worldwide"],a:0,e:"Grave goods and differences in burial construction can indicate status, occupation, cultural practices and beliefs, although interpretations require caution."},
+{q:"Which statement about megalithic communities is most consistent with the notes?",o:["Every community had the same burial form and social structure","Burial practices varied by region and could reflect social differentiation","They had no domestic animals","They were all urban Harappan settlements"],a:1,e:"Megalithic traditions show regional variation in burial forms and grave goods; evidence may point to differences in status."},
+{q:"Which animal list best matches the domesticated animals mentioned in the megalithic section of the notes?",o:["Sheep, goats, dogs, pigs, horses, buffaloes, fowls and asses","Only elephants and rhinoceroses","Only camels and llamas","Only cats and peacocks"],a:0,e:"The supplied notes list several domesticated animals, including sheep, goats, dogs, pigs, horses, buffaloes, fowls and asses."},
+{q:"Which of the following is a reasonable archaeological inference from grinding stones and pestles at a site?",o:["They may support an interpretation involving food processing and plant use","They prove that iron was unknown throughout the world","They identify the ruler by name","They prove that the site was a port"],a:0,e:"Grinding equipment can support interpretations about processing grains or other plant foods, but should be read alongside other evidence."},
+{q:"The earliest evidence of iron use in India is described in the notes as dating to approximately:",o:["1200 BCE","600 CE","3000 CE","500 BCE only, with no earlier evidence"],a:0,e:"The supplied notes cite evidence around 1200 BCE, including sites such as Atranjikhera and Hallur. Dates and regional spread remain subjects of archaeological research."},
+{q:"Which site is paired with Uttar Pradesh in the notes in the discussion of early iron evidence?",o:["Atranjikhera","Hallur","Porkalam","Bagor"],a:0,e:"Atranjikhera is in Uttar Pradesh; Hallur is in Karnataka."},
+{q:"What was one major consequence of iron tools in the Ganga plains, according to the notes?",o:["They helped clear forests and expand agriculture and settlements","They ended all long-distance trade","They caused farming to disappear","They prevented the rise of towns"],a:0,e:"Iron axes and plough-related tools contributed to forest clearance and agricultural expansion, supporting settlement growth."},
+{q:"The term 'Second Urbanization' in early historic India is commonly linked in the notes to developments around:",o:["600 BCE","10,000 BCE","1200 CE","1757 CE"],a:0,e:"The notes link the Second Urbanization, including the growth of cities such as Pataliputra and Ujjain, to around 600 BCE."}
+];
+let current=0, score=0, answers=Array(questions.length).fill(null);
+const quiz=document.getElementById('quiz');
+function render(){
+ if(current>=questions.length){finish();return;}
+ document.getElementById('progressText').textContent=`Question ${current+1} of ${questions.length}`;
+ document.getElementById('scoreText').textContent=`Score: ${score}`;
+ document.getElementById('bar').style.width=`${current/questions.length*100}%`;
+ const q=questions[current];
+ quiz.innerHTML=`<section class="panel"><div class="row"><span class="tag">Question ${current+1}</span><span class="pill">APPSC-style • Conceptual</span></div><div class="qtitle">${q.q}</div><div class="opts">${q.o.map((op,i)=>`<button class="opt" data-i="${i}"><span class="letter">${"ABCD"[i]}.</span><span>${op}</span></button>`).join('')}</div><div class="feedback" id="feedback" aria-live="polite"></div><div class="controls"><button class="action" id="next" disabled>${current===questions.length-1?'View result':'Next question →'}</button><button class="action secondary" id="skip">Skip for now</button></div></section>`;
+ quiz.querySelectorAll('.opt').forEach(b=>b.addEventListener('click',()=>choose(+b.dataset.i)));
+ document.getElementById('next').addEventListener('click',()=>{current++;render()});
+ document.getElementById('skip').addEventListener('click',()=>{current++;render()});
+}
+function choose(i){
+ if(answers[current]!==null)return;
+ answers[current]=i;const q=questions[current];const buttons=quiz.querySelectorAll('.opt');
+ buttons.forEach((b,j)=>{b.disabled=true;if(j===q.a)b.classList.add('correct');if(j===i&&i!==q.a)b.classList.add('wrong')});
+ if(i===q.a)score++;
+ const f=document.getElementById('feedback');f.className='feedback show '+(i===q.a?'good':'bad');
+ f.innerHTML=`<strong>${i===q.a?'Correct!':'Not quite.'}</strong> Correct answer: <strong>${'ABCD'[q.a]}. ${q.o[q.a]}</strong><br>${q.e}`;
+ document.getElementById('next').disabled=false;document.getElementById('scoreText').textContent=`Score: ${score}`;
+}
+function finish(){
+ quiz.innerHTML='';document.getElementById('bar').style.width='100%';document.getElementById('progressText').textContent='Practice complete';document.getElementById('scoreText').textContent=`Score: ${score}`;
+ const r=document.getElementById('results');r.classList.remove('hidden');document.getElementById('finalScore').textContent=`${score} / ${questions.length}`;
+ const pct=Math.round(score/questions.length*100);document.getElementById('summary').textContent=`Accuracy: ${pct}%. ${pct>=80?'Strong work—review the explanations for any missed items.':pct>=60?'Good attempt—review the missed concepts and try again.':'Use the answer review to identify weak areas, then retry the set.'}`;
+}
+function showReview(){
+ const el=document.getElementById('review');el.classList.toggle('hidden');
+ el.innerHTML=questions.map((q,i)=>{const ans=answers[i];return `<div class="review-item"><strong>${i+1}. ${q.q}</strong><div class="small">Your answer: ${ans===null?'Skipped':('ABCD'[ans]+'. '+q.o[ans])}</div><div><b>Correct:</b> ${'ABCD'[q.a]}. ${q.o[q.a]}</div><div class="small">${q.e}</div></div>`}).join('');
+}
+function restart(){current=0;score=0;answers=Array(questions.length).fill(null);document.getElementById('results').classList.add('hidden');document.getElementById('review').classList.add('hidden');render();window.scrollTo({top:0,behavior:'smooth'})}
+render();
+</script>
+</body>
+</html>
